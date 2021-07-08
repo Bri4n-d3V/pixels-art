@@ -29,6 +29,10 @@ body {
   background-color: blue;
 }
 
+#all-table {
+  display: inline-block;
+}
+
 #pixel-board {
   margin-top: 50px;
   display: table;
