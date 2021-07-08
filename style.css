@@ -1,0 +1,26 @@
+#title {
+  text-align: center;
+}
+.color {
+  display: inline-block;
+  border: black solid 1px;
+  width: 50px;
+  height: 50px;
+  margin: auto 30px;
+}
+
+#n1 {
+  background-color: black;
+}
+
+#n2 {
+  background-color: red;
+}
+
+#n3 {
+  background-color: green;
+}
+
+#n4 {
+  background-color: blue;
+}
