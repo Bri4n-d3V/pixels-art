@@ -5,6 +5,11 @@ const pixelBoard = document.querySelector('#pixel-board');
 const input = document.querySelector('#board-size');
 const clear = document.querySelector('#clear-board');
 const vqv = document.querySelector('#generate-board')
+const n1 = document.querySelector('#n1');
+const n2 = document.querySelector('#n2');
+const n3 = document.querySelector('#n3');
+const n4 = document.querySelector('#n4');
+const nAll = [n1, n2, n3, n4];
 
 function changeClassSelected() {
   color.forEach(i => {
@@ -70,3 +75,17 @@ function buttonVqv() {
   }
 }
 buttonVqv();
+
+function randomColor() {
+  n1.style.backgroundColor = 'black';
+  for (let i = 1; i < nAll.length; i += 1) {
+    const a = Math.floor(Math.random() * 255);
+    const b = Math.floor(Math.random() * 255);
+    const c = Math.floor(Math.random() * 255);
+
+    nAll[i].style.backgroundColor = `rgb(${a}, ${b}, ${c})`;
+    if (nAll[i].style.backgroundColor === 'rgb(255, 255, 255)') {
+      return randomColor();
+    }
+  }
+} randomColor()
