@@ -1,8 +1,12 @@
 body {
   text-align: center;
 }
+#vqv {
+  margin: auto;
+  margin-top: 20px;
+}
 
-button {
+#clear-board {
   display: flex;
   margin: auto;
   margin-top: 20px;
@@ -41,17 +45,20 @@ button {
 
 #pixel-board {
   margin-top: 20px;
+  display: inline-block;
   display: table;
   border: black solid 1px;
 }
 
 .pixel-row {
+  display: inline-block;
   display: table-row;
   border: black solid 1px;
 }
 
 .pixel{
   border: black solid 1px;
+  display: inline-block;
   display: table-cell;
   width: 40px;
   height: 40px;

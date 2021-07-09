@@ -1,32 +1,66 @@
 const selected = document.querySelector('.selected');
 const color = document.querySelectorAll('.color');
 const allPixels = document.querySelectorAll('#pixel-board .pixel-row .pixel');
+const pixelBoard = document.querySelector('#pixel-board');
+const input = document.querySelector('#board-size');
 const clear = document.querySelector('#clear-board');
+const vqv = document.querySelector('#generate-board')
 
 function changeClassSelected() {
-  color.forEach(item => {
-    item.addEventListener('click', () => {
-      for (let i = 0; i < color.length; i += 1) {
-        color[i].classList.remove('selected');
+  color.forEach(i => {
+    i.addEventListener('click', () => {
+      for (let j = 0; j < color.length; j += 1) {
+        color[j].classList.remove('selected');
       }
-      item.classList.add('selected');
+      i.classList.add('selected');
     });
   });
-} changeClassSelected()
+}
+changeClassSelected()
 
 function getSelectedColor() {
-  allPixels.forEach(index => {
+  const pixels = document.querySelectorAll('.pixel');
+  pixels.forEach(index => {
     index.addEventListener('click', event => {
       const pixel = event.target.style;
       pixel.backgroundColor = window.getComputedStyle(document.querySelector('.selected')).getPropertyValue('background-color');
     });
   })
-} getSelectedColor()
+}
+getSelectedColor()
 
 function clearBoard() {
   clear.addEventListener('click', () => {
-    for (let i = 0; i < allPixels.length; i += 1) {
-      allPixels[i].removeAttribute('style');
+    const pixels = document.querySelectorAll('.pixel');
+    for (let i = 0; i < pixels.length; i += 1) {
+      pixels[i].removeAttribute('style');
     }
   })
-} clearBoard()
+}
+clearBoard()
+
+function buttonVqv() {
+  vqv.addEventListener('click', Board);
+
+  function Board() {
+    const inputValue = input.value
+    if (Number(inputValue) === 0) {
+      return alert('Board inválido!')
+    }
+    while (pixelBoard.firstChild) {
+      pixelBoard.firstChild.remove()
+    }
+    for (let i = 0; i < inputValue; i += 1) {
+      const createdTR = document.createElement('div');
+      pixelBoard.appendChild(createdTR);
+      createdTR.className = 'pixel-row';
+      for (let j = 0; j < inputValue; j += 1) {
+        const createdTD = document.createElement('div');
+        createdTR.appendChild(createdTD);
+        createdTD.className = 'pixel';
+      }
+    }
+    getSelectedColor();
+  }
+}
+buttonVqv();
