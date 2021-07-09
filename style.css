@@ -2,6 +2,12 @@ body {
   text-align: center;
 }
 
+button {
+  display: flex;
+  margin: auto;
+  margin-top: 20px;
+}
+
 #color-palette {}
 
 .color {
@@ -34,7 +40,7 @@ body {
 }
 
 #pixel-board {
-  margin-top: 50px;
+  margin-top: 20px;
   display: table;
   border: black solid 1px;
 }
