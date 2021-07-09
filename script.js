@@ -43,9 +43,15 @@ function buttonVqv() {
   vqv.addEventListener('click', Board);
 
   function Board() {
-    const inputValue = input.value
+    let inputValue = input.value
     if (Number(inputValue) === 0) {
       return alert('Board inválido!')
+    }
+    if (Number(inputValue) < 5) {
+      inputValue = 5;
+    }
+    if (Number(inputValue) > 50) {
+      inputValue = 50;
     }
     while (pixelBoard.firstChild) {
       pixelBoard.firstChild.remove()
